@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url(https://brabners-cms.transforms.svdcdn.com/production/public/index-images/Spotify-logo-background-green-with-phone-graphic.jpg?w=2200&h=1467&auto=compress%2Cformat%2Cavif&fit=crop&dm=1733157398&s=470ce16aa89290312797109e8577e5f2);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+    padding-top: 60px;
+    padding-bottom: 50px; /* Padding at the bottom to ensure content doesn't touch footer */
+}
+
+/* Title Styling */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Container Styling */
+.container {
+    width: 90%;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 50px;
+    z-index: 1;
+}
+
+/* Label Styling */
+label {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    display: block;
+    color: #fff;
+}
+
+/* Select (Dropdown) Styling */
+select {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-height: 200px; /* Set a maximum height for the dropdown */
+    overflow-y: auto;
+    overflow-x: 240px;  /* Enable vertical scrolling if content exceeds max height */
+}
+
+select:focus {
+    border-color: #4CAF50;
+}
+
+
+/* Button Styling */
+button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+/* List Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* List Item Styling */
+ul li {
+    background-color: #555;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+ul li:hover {
+    background-color: #4CAF50;
+    transform: translateX(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+ul li:active {
+    transform: scale(0.98);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    select, button {
+        font-size: 1rem;
+    }
+
+    ul li {
+        font-size: 1rem;
+    }
+}
+
+/* Footer Styling */
+footer {
+    width: 100%;  /* Full width */
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    bottom: 0;  /* Stick it to the bottom */
+    left: 0;
+    color: white;
+    font-size: 1rem;
+    margin-top: auto; /* Push footer to the bottom */
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bollywood Song Recommendation System</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bollywood Song Recommendation System</h1>
+
+        <!-- Song Selection Dropdown -->
+        <label for="song-select">Select a song:</label>
+        <select id="song-select">
+            <!-- Populate the select options with song names -->
+            {% for song in song_names %}
+                <option value="{{ song }}">{{ song }}</option>
+            {% endfor %}
+        </select>
+
+        <button id="recommend-btn">Recommend</button>
+
+        <h2>Recommended Songs:</h2>
+        <ul id="recommendations-list">
+            <!-- Recommendations will appear here -->
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Handle Recommend button click
+        $('#recommend-btn').click(function() {
+            const selectedSong = $('#song-select').val();
+            $.ajax({
+                url: "/recommend",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ "selected_song": selectedSong }),
+                success: function(response) {
+                    // Clear previous recommendations
+                    $('#recommendations-list').empty();
+
+                    // Add new recommendations to the list
+                    response.forEach(function(song) {
+                        $('#recommendations-list').append('<li>' + song + '</li>');
+                    });
+                },
+                error: function() {
+                    alert("Error getting recommendations!");
+                }
+            });
+        });
+    </script>
+
+    <footer>
+        &copy; 2025 Spotify DJ_143❤️. All rights reserved.
+    </footer>
+</body>
+</html>
