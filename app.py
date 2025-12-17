@@ -5,7 +5,7 @@ from sklearn.neighbors import NearestNeighbors
 
 app = Flask(__name__)
 
-# Load the dataset and features
+
 with open("Song_list.pkl", "rb") as f:
     song_df = pk.load(f)
 
@@ -18,14 +18,13 @@ with open("feature_matrix.pkl", "rb") as f:
 knn = NearestNeighbors(n_neighbors=6, metric='cosine')  # 6 neighbors: input song + 5 recommendations
 knn.fit(X)
 
-# Define the recommendation function
 def recommend(song):
     try:
         song_index = song_df[song_df['Song-Name'] == song].index[0]
     except IndexError:
-        return []  # Return empty list if song not found
+        return [] 
     
-    song_features = X[song_index]  # Get the features of the selected song
+    song_features = X[song_index]  
     
     # Find nearest neighbors (excluding the input song itself)
     distances, indices = knn.kneighbors(song_features, n_neighbors=6)
