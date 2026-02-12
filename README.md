@@ -110,8 +110,8 @@ This architecture reflects the parallel processes of:
 ### Steps to Run Locally
 1. **Clone the Repository**
    ```bash
-   git clone <repository-url>
-   cd Bollywood-Song-Recommedation-master
+   git clone https://github.com/Kuldeep-Tapodhan/Bollywood-Song-Recommedation
+   cd Bollywood-Song-Recommedation
    ```
 
 2. **Install Dependencies**
